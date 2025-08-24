@@ -1,0 +1,42 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Task1Intern {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		Random r=new Random();
+		String playAgain=" ";
+		int totalScore=0;
+		
+		do { 
+			int num=r.nextInt(100)+1;
+			int countAttempt=0;
+			int guess=0;
+			int maxAttempt=5;
+			 System.out.println("Guess the number between 1 to 100");
+			 System.out.println("You have "+maxAttempt+" attempts");
+		    while(guess!=num&&countAttempt<maxAttempt) {
+			 System.out.println("Enter the guess");
+			 guess=sc.nextInt();
+			 countAttempt++;
+		    if(guess<num)
+				System.out.println("Too Low!");
+			else if(guess>num)
+				System.out.println("Too High!");
+			else {
+			    System.out.println("Correct! You guessed it in "+countAttempt+" attempts");
+		        totalScore=(maxAttempt- countAttempt+1);}
+		}if(guess!=num) {
+			System.out.println("Ooh!You Are Out of attempts!The number was "+num);
+		}
+			System.out.println("\nDo you want to play again? (yes/no):");
+			playAgain=sc.next();
+		}
+		while(playAgain.equalsIgnoreCase("yes"));
+		System.out.println("Your Final Score is "+totalScore);
+		System.out.println("Thanks for playing");
+	
+	}
+}
